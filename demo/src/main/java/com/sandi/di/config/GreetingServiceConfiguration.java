@@ -3,12 +3,10 @@ package com.sandi.di.config;
 import com.sandi.di.service.GreetingRepository;
 import com.sandi.di.service.GreetingService;
 import com.sandi.di.service.GreetingServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
 @Configuration
+@ComponentScan(basePackages={"com.sandi.di.service"})
 public class GreetingServiceConfiguration {
 
     @Bean
