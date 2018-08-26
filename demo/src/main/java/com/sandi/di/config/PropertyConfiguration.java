@@ -10,12 +10,6 @@ import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-//@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
-//In spring 4 >
-@PropertySources({
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")
-})
 public class PropertyConfiguration {
     @Value("${guru.username}")
     String user;
@@ -53,9 +47,9 @@ public class PropertyConfiguration {
         return dummyDataSource;
     }
 
-    @Bean
+   /* @Bean
     public static PropertySourcesPlaceholderConfigurer properties(){
         PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer =new PropertySourcesPlaceholderConfigurer();
         return  propertySourcesPlaceholderConfigurer;
-    }
+    }*/
 }

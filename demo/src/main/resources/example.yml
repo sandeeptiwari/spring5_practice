@@ -1,0 +1,34 @@
+#this is yml comment
+
+name: sandi
+
+names:
+  -John
+  -Paul
+  -Rimgo
+
+pound_sign: "#"
+
+book:
+  author: sandeep
+  publisher: random
+
+thuth: yes
+
+another_truth: Yes
+
+false: no #no, false, FALSE
+
+string_val: "This is string value"
+
+include_new_line: |
+  this is first line
+  this is second line
+  this is third line
+  this is fourth line
+
+ignore_new_line: >
+  this is first line
+  this is second line
+  this is third line
+  this is fourth line
