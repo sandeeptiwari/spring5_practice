@@ -1,14 +1,21 @@
 package com.sandi.di.config;
 
 import com.sandi.di.model.DummyDataSource;
+import com.sandi.di.model.DummyJmsBroker;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@PropertySource("classpath:datasource.properties")
+//@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
+//In spring 4 >
+@PropertySources({
+        @PropertySource("classpath:datasource.properties"),
+        @PropertySource("classpath:jms.properties")
+})
 public class PropertyConfiguration {
     @Value("${guru.username}")
     String user;
@@ -18,6 +25,24 @@ public class PropertyConfiguration {
 
     @Value("${guru.dburl}")
     String url;
+
+    @Value("${sandi.jms.username}")
+    String jmsUser;
+
+    @Value("${sandi.jms.pass}")
+    String jmsPass;
+
+    @Value("${sandi.jms.url}")
+    String jmsUrl;
+
+    @Bean
+    public DummyJmsBroker dummyJmsBroker(){
+        DummyJmsBroker dummyJmsBroker = new DummyJmsBroker();
+        dummyJmsBroker.setUser(jmsUser);
+        dummyJmsBroker.setPass(jmsPass);
+        dummyJmsBroker.setUrl(jmsUrl);
+        return dummyJmsBroker;
+    }
 
     @Bean
     public DummyDataSource dummyDataSource(){
