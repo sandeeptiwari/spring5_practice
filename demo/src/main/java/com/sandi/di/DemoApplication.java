@@ -21,10 +21,10 @@ public class DemoApplication {
 
         ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
 
-        DummyDataSource dummy = (DummyDataSource) ctx.getBean(DummyDataSource.class);
+        /*DummyDataSource dummy = (DummyDataSource) ctx.getBean(DummyDataSource.class);
         System.out.println("UserName :: "+dummy.getUserName());
         System.out.println("Pass :: "+dummy.getPassword());
-        System.out.println("DbUrl :: "+dummy.getUrl());
+        System.out.println("DbUrl :: "+dummy.getUrl());*/
 
 
         DummyJmsBroker dummy1 = (DummyJmsBroker) ctx.getBean(DummyJmsBroker.class);
@@ -32,9 +32,9 @@ public class DemoApplication {
         System.out.println("jms Pass :: "+dummy1.getPass());
         System.out.println("jms DbUrl :: "+dummy1.getUrl());
 
-        /*System.out.println(ctx.getBean(MyController.class).hello());
+        System.out.println(ctx.getBean(MyController.class).hello());
         System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
         System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
-        System.out.println(ctx.getBean(GetterInjectedController.class).sayHello());*/
+        System.out.println(ctx.getBean(GetterInjectedController.class).sayHello());
     }
 }

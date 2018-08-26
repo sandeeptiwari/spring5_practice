@@ -1,0 +1,11 @@
+#https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html
+sandi:
+  jms:
+    username: kavya
+    pass: 123
+    url: someurl
+
+guru:
+  username: sandi
+  password: maa
+  dburl: jdbc:mysql://localhost:3306/jpa
