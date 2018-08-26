@@ -1,5 +1,7 @@
 package com.sandi.recipe.domain;
 
+import com.sandi.recipe.Ingredient;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -15,13 +17,19 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
+    @Enumerated(value=EnumType.STRING)
     private Difficulty difficulty;
     @Lob
     private byte[] image;
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Recipe> ingredients;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
+
+    @ManyToMany
+    @JoinTable(name="recipe_category", joinColumns = @JoinColumn(name="recipe_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
 
     public Long getId() {
         return id;
@@ -109,5 +117,21 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
