@@ -8,7 +8,7 @@ public class GreetingServiceFactory {
         this.greetingRepository = greetingRepository;
     }
 
-    public  GreetingService creatingGreetingService(String lang){
+    public  GreetingService createGreetingService(String lang){
         switch(lang) {
             case "en":
                 return new PrimaryGreetingService(greetingRepository);
