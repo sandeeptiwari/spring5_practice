@@ -12,7 +12,18 @@
 </head>
 <body>
 
-${msg}
+<h1>${msg}</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Hobby</th>
+    </tr>
+    <tr>
+        <td>${student.studentName}</td>
+        <td>${student.studentHobby}</td>
+    </tr>
+</table>
+
 
 </body>
 </html>
