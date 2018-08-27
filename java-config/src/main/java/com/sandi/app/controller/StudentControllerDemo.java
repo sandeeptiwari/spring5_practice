@@ -1,16 +1,27 @@
 package com.sandi.app.controller;
 
 import com.sandi.app.model.Student;
+import org.springframework.beans.propertyeditors.CurrencyEditor;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class StudentControllerDemo {
+    @InitBinder
+    public void initBinder(WebDataBinder webDataBinder){
+
+        SimpleDateFormat format = new SimpleDateFormat("mm-dd-yyyy");
+        webDataBinder.registerCustomEditor(Date.class, "studentDOB", new CustomDateEditor(format, false));
+    }
+
     /*@RequestMapping(value="/submitAdmissionForm.html", method = RequestMethod.POST)
     public ModelAndView submitAdmissionForm(@RequestParam("studentName") String name, @RequestParam("studentHobby") String hobby){
         ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
@@ -45,8 +56,13 @@ public class StudentControllerDemo {
     }
 
     @RequestMapping(value="/submitAdmissionForm.html", method = RequestMethod.POST)
-    public ModelAndView submitAdmissionForm(@ModelAttribute("student1") Student student) {
+    public ModelAndView submitAdmissionForm(@ModelAttribute("student1") Student student, BindingResult result) {
 
+        if(result.hasErrors()){
+            ModelAndView model1 = new ModelAndView("AdmissionForm");
+
+            return model1;
+        }
 
         ModelAndView model1 = new ModelAndView("AdmissionSuccess");
         return model1;

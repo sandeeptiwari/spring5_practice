@@ -20,10 +20,10 @@
 			<td>${student1.studentMobile}</td>
 		</tr>
 
-		<%--<tr>
+		<tr>
 			<td>Student DOB :</td>
 			<td>${student1.studentDOB}</td>
-		</tr>--%>
+		</tr>
 		<tr>
 			<td>Student Skills :</td>
 			<td>${student1.studentSkills}</td>

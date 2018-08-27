@@ -10,7 +10,7 @@ public class Student {
     private String studentHobby;
 
     private Long studentMobile;
-    //private Date studentDOB;
+    private Date studentDOB;
     private ArrayList<String> studentSkills;
 
     public Long getStudentMobile() {
@@ -19,12 +19,12 @@ public class Student {
     public void setStudentMobile(Long studentMobile) {
         this.studentMobile = studentMobile;
     }
-    /*public Date getStudentDOB() {
+    public Date getStudentDOB() {
         return studentDOB;
     }
     public void setStudentDOB(Date studentDOB) {
         this.studentDOB = studentDOB;
-    }*/
+    }
     public ArrayList<String> getStudentSkills() {
         return studentSkills;
     }
