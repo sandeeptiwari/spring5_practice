@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h1>${msg}</h1>
+<h1>${headerMsg}</h1>
 <table>
     <tr>
         <th>Name</th>

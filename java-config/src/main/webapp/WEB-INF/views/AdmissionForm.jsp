@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h1>Student admission form for engineering course</h1>
+<h1>${headerMsg}</h1>
 
 <form action="/submitAdmissionForm.html" method="post">
    <p>Student's name <input type="text" name="studentName" /></p>

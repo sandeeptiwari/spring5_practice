@@ -2,6 +2,7 @@ package com.sandi.app.controller;
 
 import com.sandi.app.model.Student;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,7 @@ public class StudentControllerDemo {
     @RequestMapping(value="/admissionFrom.html", method = RequestMethod.GET)
     public ModelAndView getAdmissionForm(){
         ModelAndView modelAndView = new ModelAndView("AdmissionForm");
+        //modelAndView.addObject("headerMsg", "KIET colledge of Ghaziabad");
         return modelAndView;
     }
 
@@ -33,10 +35,16 @@ public class StudentControllerDemo {
     @RequestMapping(value="/submitAdmissionForm.html", method = RequestMethod.POST)
     public ModelAndView submitAdmissionForm(@ModelAttribute("student") Student student){
         ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
-
-        modelAndView.addObject("msg", "Detail submitted by you :: name "+ student.getStudentName()
-                +" hobby "+student.getStudentHobby());
-        modelAndView.addObject("student", student);
+        //no need to pass on view with ModelAndView
+        //modelAndView.addObject("headerMsg", "You  form submitted successfully");
+       // modelAndView.addObject("student", student);
         return modelAndView;
     }
+
+    //same annotation at method level
+    @ModelAttribute
+    public void addingCommonObject(Model model){
+        model.addAttribute("headerMsg", "KIET colledge of Ghaziabad");
+    }
+
 }
