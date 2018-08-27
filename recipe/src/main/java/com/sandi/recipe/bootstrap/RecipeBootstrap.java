@@ -1,6 +1,6 @@
 package com.sandi.recipe.bootstrap;
 
-import com.sandi.recipe.Ingredient;
+import com.sandi.recipe.domain.Ingredient;
 import com.sandi.recipe.domain.*;
 import com.sandi.recipe.repository.CategoryRepository;
 import com.sandi.recipe.repository.RecipeRepository;
