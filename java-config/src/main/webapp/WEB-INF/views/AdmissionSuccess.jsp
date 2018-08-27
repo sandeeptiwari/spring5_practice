@@ -1,29 +1,35 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Sandeep
-  Date: 26-08-2018
-  Time: 11:00 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
 <body>
+	<h1>${headerMessage}</h1>
+ 
+	<h3>Congratulations!! the Engineering college has processed your Application form successfully</h3>
 
-<h1>${headerMsg}</h1>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Hobby</th>
-    </tr>
-    <tr>
-        <td>${student.studentName}</td>
-        <td>${student.studentHobby}</td>
-    </tr>
-</table>
+	<h2>Details submitted by you:: </h2>
 
+	<table>
+		<tr>
+			<td>Student Name :</td>
+			<td>${student1.studentName}</td>
+		</tr>
+		<tr>
+			<td>Student Hobby :</td>
+			<td>${student1.studentHobby}</td>
+		</tr>
+		<tr>
+			<td>Student Mobile :</td>
+			<td>${student1.studentMobile}</td>
+		</tr>
+
+		<%--<tr>
+			<td>Student DOB :</td>
+			<td>${student1.studentDOB}</td>
+		</tr>--%>
+		<tr>
+			<td>Student Skills :</td>
+			<td>${student1.studentSkills}</td>
+		</tr>
+
+	</table>
 
 </body>
 </html>

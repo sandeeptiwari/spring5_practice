@@ -11,14 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class StudentControllerDemo {
-
-    @RequestMapping(value="/admissionFrom.html", method = RequestMethod.GET)
-    public ModelAndView getAdmissionForm(){
-        ModelAndView modelAndView = new ModelAndView("AdmissionForm");
-        //modelAndView.addObject("headerMsg", "KIET colledge of Ghaziabad");
-        return modelAndView;
-    }
-
     /*@RequestMapping(value="/submitAdmissionForm.html", method = RequestMethod.POST)
     public ModelAndView submitAdmissionForm(@RequestParam("studentName") String name, @RequestParam("studentHobby") String hobby){
         ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
@@ -32,19 +24,33 @@ public class StudentControllerDemo {
         return modelAndView;
     }*/
 
-    @RequestMapping(value="/submitAdmissionForm.html", method = RequestMethod.POST)
-    public ModelAndView submitAdmissionForm(@ModelAttribute("student") Student student){
-        ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
-        //no need to pass on view with ModelAndView
-        //modelAndView.addObject("headerMsg", "You  form submitted successfully");
-       // modelAndView.addObject("student", student);
-        return modelAndView;
-    }
-
     //same annotation at method level
     @ModelAttribute
     public void addingCommonObject(Model model){
         model.addAttribute("headerMsg", "KIET colledge of Ghaziabad");
     }
+
+    @RequestMapping(value="/admissionForm.html", method = RequestMethod.GET)
+    public ModelAndView getAdmissionForm() {
+
+        ModelAndView model1 = new ModelAndView("AdmissionForm");
+
+        return model1;
+    }
+
+    @ModelAttribute
+    public void addingCommonObjects(Model model1) {
+
+        model1.addAttribute("headerMessage", "Gontu College of Engineering, India");
+    }
+
+    @RequestMapping(value="/submitAdmissionForm.html", method = RequestMethod.POST)
+    public ModelAndView submitAdmissionForm(@ModelAttribute("student1") Student student) {
+
+
+        ModelAndView model1 = new ModelAndView("AdmissionSuccess");
+        return model1;
+    }
+
 
 }
